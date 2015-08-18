@@ -159,7 +159,15 @@ ActiveRecord::Schema.define(:version => 20150401012229) do
     t.integer  "area"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+<<<<<<< HEAD
     t.boolean  "in2015list" 
+=======
+<<<<<<< HEAD
+    t.boolean  "in2015list"
+=======
+    t.boolean  "in2015list" 
+>>>>>>> 49dcf47ef34845bfac14f51ffe42d7648f3866c1
+>>>>>>> AfESG-homepage
   end
 
   create_table "population_submission_attachments", :force => true do |t|
