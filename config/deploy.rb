@@ -1,5 +1,8 @@
+require "rvm/capistrano"
+require "rvm/capistrano/gem_install_uninstall"
+
 set :application, "aaed"
-set :repository,  "git@github.com:rfc2616/aaed.git"
+set :repository,  "git@github.com:AfESG/AEDwebsite.git"
 
 set :scm, :git
 
@@ -26,10 +29,13 @@ if target == 'STAGING'
   default_environment['POSTGRESQL_DATABASE'] = 'aaed_staging'
   default_environment['HOSTNAME'] = 'staging.elephantdatabase.org'
   set :deploy_to, '/u/staging'
+  set :branch,  "homepage"
 end
 
-set :rvm_ruby_string, 'ruby-1.9.3-p194'
-set :rvm_type, :user
+set :rvm_ruby_string, 'ruby-2.2.2@aaed'
+
+before 'deploy', 'rvm:install_rvm'
+before 'deploy', 'rvm:install_ruby'
 
 require 'bundler/capistrano'
 
